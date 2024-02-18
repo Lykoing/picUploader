@@ -100,8 +100,10 @@ const messages = ref([]);
 const onUpload = async (event) => {
   try {
     const file = event.files[0]; // Загруженный файл
-    const apiUrl = "http://localhost:5173"; // Добавить нужный ендпоинт
-    const response = await axios.post(apiUrl, file);
+    const apiPicUrl = "http://localhost:5173"; // Добавить нужный ендпоинт
+    const apiPicParamsUrl = "http://localhost:5173"; // Добавить нужный ендпоинт
+    const picResponse = await axios.post(apiPicUrl, file);
+    const paramsResponse = await axios.post(apiPicParamsUrl, picParams);
     messages.value.push({
       content: "Загрузка успешна",
       severity: "success",
